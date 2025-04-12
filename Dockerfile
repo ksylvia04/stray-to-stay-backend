@@ -1,9 +1,9 @@
-FROM Node 
+FROM node:20
 
-WORKDIR /home
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 RUN npm install 
 COPY . .
-
-ENTRYPOINT [ "node","app.js" ]
+# Start the app using nodemon
+CMD ["npx", "nodemon", "app.js"]
